@@ -26,4 +26,5 @@
         android:toXDelta="0"
         android:duration="3000">
     </translate>
+
 </set>

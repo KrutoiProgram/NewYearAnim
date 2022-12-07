@@ -22,6 +22,8 @@ import com.airbnb.lottie.LottieAnimationView
 private lateinit var el_btn: ImageButton
 private lateinit var santa: ImageButton
 private lateinit var anim: Animation
+private lateinit var gift1: ImageButton
+private lateinit var gift2: ImageButton
 
 
 
@@ -32,6 +34,8 @@ class MainActivity : AppCompatActivity() {
 
         el_btn = findViewById(R.id.imageView7)
         santa = findViewById(R.id.imageView17)
+        gift1 = findViewById(R.id.imageView18)
+        gift2 = findViewById(R.id.imageView19)
         santa.isVisible = false
         santa.isEnabled = false
         el_btn.setOnClickListener {
@@ -39,12 +43,31 @@ class MainActivity : AppCompatActivity() {
             santa.isEnabled = true
             anim = AnimationUtils.loadAnimation(this,R.anim.snowflake_anim)
             santa.startAnimation(anim)
+            anim = AnimationUtils.loadAnimation(this,R.anim.ded_anim)
 
         }
+        gift1.isEnabled = false
+        gift1.isVisible = false
+        gift2.isVisible = false
+        gift2.isEnabled = false
         santa.setOnClickListener {
+            gift1.isVisible = true
+            gift2.isVisible = true
+            gift1.isEnabled = true
+            gift2.isEnabled = true
+            anim = AnimationUtils.loadAnimation(this,R.anim.ded_anim)
+            gift1.startAnimation(anim)
+            gift2.startAnimation(anim)
 
         }
-        santa.isVisible = false
+        gift1.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity((intent))
+        }
+        gift2.setOnClickListener {
+            val intent = Intent(this, MainActivity2::class.java)
+            startActivity((intent))
+        }
 
 
 
